@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,16 +29,29 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <span className="font-montserrat font-bold text-xl text-primary-dark">Logo</span>
+            <span className="font-montserrat font-bold text-xl text-primary">Logo</span>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Social Icons */}
+            <div className="flex items-center space-x-4 mr-8">
+              <a href="#" className="text-primary hover:text-secondary transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-primary hover:text-secondary transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-primary hover:text-secondary transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="flex items-baseline space-x-8">
               {menuItems.map((item) => (
                 <div key={item.title} className="relative group">
                   <button
-                    className="flex items-center font-inter text-gray-700 hover:text-primary-dark px-3 py-2 text-sm font-medium transition-colors"
+                    className="flex items-center font-inter text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
                     onMouseEnter={() => setActiveSubmenu(item.title)}
                     onClick={() => setActiveSubmenu(activeSubmenu === item.title ? null : item.title)}
                   >
@@ -53,7 +66,7 @@ const Navbar = () => {
                           <a
                             key={subItem}
                             href="#"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:text-primary-dark transition-colors"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:text-white transition-colors"
                           >
                             {subItem}
                           </a>
@@ -70,7 +83,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-dark focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -85,7 +98,7 @@ const Navbar = () => {
             {menuItems.map((item) => (
               <div key={item.title}>
                 <button
-                  className="w-full flex items-center justify-between text-gray-700 hover:text-primary-dark px-3 py-2 rounded-md text-base font-medium"
+                  className="w-full flex items-center justify-between text-gray-700 hover:text-primary px-3 py-2 rounded-md text-base font-medium"
                   onClick={() => setActiveSubmenu(activeSubmenu === item.title ? null : item.title)}
                 >
                   {item.title}
@@ -97,7 +110,7 @@ const Navbar = () => {
                       <a
                         key={subItem}
                         href="#"
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary-dark hover:bg-primary"
+                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-100"
                       >
                         {subItem}
                       </a>
@@ -106,6 +119,18 @@ const Navbar = () => {
                 )}
               </div>
             ))}
+            {/* Mobile Social Icons */}
+            <div className="flex items-center space-x-6 px-3 py-4">
+              <a href="#" className="text-primary hover:text-secondary transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-primary hover:text-secondary transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-primary hover:text-secondary transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       )}
