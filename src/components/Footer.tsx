@@ -1,4 +1,3 @@
-
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -72,19 +71,6 @@ const Footer = () => {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-            </div>
-            <div className="mt-6">
-              <h3 className="font-montserrat font-semibold text-lg mb-3">Subscribe</h3>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="bg-white/10 rounded-l-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-secondary w-full"
-                />
-                <button className="bg-secondary px-4 py-2 rounded-r-md hover:bg-secondary/90 transition-colors">
-                  Subscribe
-                </button>
-              </div>
             </div>
           </div>
         </div>
